@@ -1,0 +1,19 @@
+# Hugging Face / SentenceTransformer caches
+**/cache/
+**/.cache/
+**/sentence_transformers/
+**/huggingface/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# Git
+.git/
+
+# OS junk
+.DS_Store
+Thumbs.db

@@ -1,0 +1,48 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: nlp-gp-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    restart: unless-stopped
+    networks:
+      - rag-net
+
+  sec-rag-jupyter-gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter.gpu
+    container_name: sec-rag-jupyter-gpu
+    env_file:
+      - .env
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - ./app:/workspace/app
+      - ./notebooks:/workspace/notebooks
+      - ./data:/workspace/data
+      - ./submissions:/workspace/submissions
+    working_dir: /workspace
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    networks:
+      - rag-net
+
+volumes:
+  ollama-data:
+
+networks:
+  rag-net:
+    driver: bridge

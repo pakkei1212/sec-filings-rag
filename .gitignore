@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+data/
+vector_store/
+logs/
+.cache/
+.ipynb_checkpoints/
+notebooks/.Trash-*/
+**/.Trash-*/
+cache/
+submissions/
+

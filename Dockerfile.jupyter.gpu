@@ -1,0 +1,57 @@
+FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# ------------------------------------------------------------
+# System dependencies
+# ------------------------------------------------------------
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    git \
+    curl \
+    build-essential \
+    libgl1 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+
+# ------------------------------------------------------------
+# Python tooling
+# ------------------------------------------------------------
+RUN pip install --upgrade pip setuptools wheel
+
+# Install torch FIRST (critical)
+RUN pip install --no-cache-dir torch \
+    --extra-index-url https://download.pytorch.org/whl/cu121
+
+# Install remaining Python deps
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ------------------------------------------------------------
+# Project files
+# ------------------------------------------------------------
+COPY app/ ./app/
+COPY notebooks/ ./notebooks/
+
+# ------------------------------------------------------------
+# Data directories
+# ------------------------------------------------------------
+RUN mkdir -p /data/raw /data/chroma
+
+# ------------------------------------------------------------
+# Environment
+# ------------------------------------------------------------
+ENV PYTHONPATH=/workspace
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV JUPYTER_ENABLE_LAB=yes
+
+EXPOSE 8888
+
+# ------------------------------------------------------------
+# Runtime
+# ------------------------------------------------------------
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]

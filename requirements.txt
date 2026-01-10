@@ -1,0 +1,57 @@
+# ============================================================
+# Core SEC ingestion & parsing
+# ============================================================
+requests
+beautifulsoup4
+lxml
+python-dotenv
+
+
+# ============================================================
+# Vector database & local model runtime
+# ============================================================
+chromadb
+ollama
+
+
+# ============================================================
+# Embeddings (GPU-aware, batch-friendly)
+# ============================================================
+torch
+sentence-transformers
+einops>=0.7.0
+
+
+# ============================================================
+# Tokenization & text utilities
+# ============================================================
+tiktoken
+
+
+# ============================================================
+# Jupyter / experimentation / progress
+# ============================================================
+jupyterlab
+ipywidgets>=8.0.0
+tqdm
+Pillow
+
+
+# ============================================================
+# LangChain ecosystem (LLMs, splitters, adapters)
+# ============================================================
+langchain==0.3.22
+langchain-core==0.3.49
+langchain-community==0.3.20
+langchain-text-splitters==0.3.7
+
+# Model-specific integrations
+langchain-ollama==0.3.0
+langchain-openai==0.3.11
+langchain-anthropic==0.3.3
+langchain-google-genai==2.1.2
+langchain-mistralai==0.2.4
+
+# MCP & tracing
+langchain-mcp-adapters==0.0.9
+langsmith==0.3.43

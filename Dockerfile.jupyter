@@ -1,0 +1,32 @@
+FROM python:3.11-slim
+
+# System deps
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Workdir
+WORKDIR /workspace
+
+# Python deps
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt \
+    jupyterlab
+
+# Copy code
+COPY app/ ./app/
+COPY notebooks/ ./notebooks/
+
+# Data dirs
+RUN mkdir -p /data/raw /data/chroma
+
+# Env
+ENV PYTHONPATH=/workspace
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+EXPOSE 8888
+
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]

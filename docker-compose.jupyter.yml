@@ -1,0 +1,15 @@
+services:
+  sec-rag-jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    container_name: sec-rag-jupyter
+    env_file:
+      - .env
+    volumes:
+      - ./app:/workspace/app
+      - ./notebooks:/workspace/notebooks
+      - ./data:/data
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
