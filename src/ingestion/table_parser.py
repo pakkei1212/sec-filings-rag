@@ -2,7 +2,7 @@ import re
 from typing import Dict, List
 from bs4 import Tag
 
-from config import FINANCIAL_KEYWORDS, YEAR_PATTERN, ITEM_PATTERN
+from configs.parsing import FINANCIAL_KEYWORDS, YEAR_PATTERN, ITEM_PATTERN
 
 
 def html_table_to_json(table: Tag) -> Dict:

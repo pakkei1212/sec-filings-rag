@@ -3,7 +3,7 @@ from typing import List, Tuple, Optional
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from config import ITEM_PATTERN
+from config_bak import ITEM_PATTERN
 
 
 # -------------------------------------------------

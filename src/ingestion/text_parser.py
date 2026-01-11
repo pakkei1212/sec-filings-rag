@@ -1,7 +1,7 @@
 import re
 import html
 from bs4 import BeautifulSoup, NavigableString, Tag
-from config import INLINE_TAGS, BLOCK_TAGS, REMOVE_TAGS, NON_NARRATIVE_TAGS
+from configs.parsing import INLINE_TAGS, BLOCK_TAGS, REMOVE_TAGS, NON_NARRATIVE_TAGS
 
 
 def normalize_text(text: str) -> str:

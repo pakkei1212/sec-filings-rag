@@ -6,9 +6,11 @@ from typing import List, Dict
 from urllib.parse import urljoin, urlparse
 from bs4 import Tag
 
-from src.embedding_manager_transformer import TransformerEmbeddingManager
+from src.embeddings.embedding_manager import TransformerEmbeddingManager
 from src.utils.sec_items import normalize_item_code
-from config import IMAGES_DIR, SEC_HEADERS, ITEM_PATTERN
+from configs.paths import IMAGES_DIR
+from configs.sec import SEC_HEADERS
+from configs.parsing import ITEM_PATTERN
 
 def normalize_vision_output(text: str) -> str:
     """

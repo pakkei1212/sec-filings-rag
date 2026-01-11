@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from config import IMAGES_DIR
+from config_bak import IMAGES_DIR
 
 
 def extract_images(html: str, base_url: str) -> List[Dict]:

@@ -3,13 +3,7 @@ import requests
 from pathlib import Path
 from typing import Dict
 
-from config import (
-    BASE_DATA,
-    BASE_ARCHIVE,
-    SUBMISSIONS_DIR,
-    IMAGES_DIR,
-    SEC_HEADERS
-)
+from configs import *
 
 # ----------------------------
 # Public API

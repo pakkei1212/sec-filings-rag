@@ -15,7 +15,6 @@ from chromadb.utils.embedding_functions import OllamaEmbeddingFunction
 import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
-from config import *
 
 # Set up logging
 VERBOSE_LEVEL_MAP = {

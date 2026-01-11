@@ -2,7 +2,7 @@ import re
 from bs4 import BeautifulSoup
 from typing import List
 
-from config import ITEM_PATTERN
+from config_bak import ITEM_PATTERN
 
 
 def contains_item_code(text: str) -> bool:

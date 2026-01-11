@@ -1,13 +1,36 @@
+# -----------------------------
+# Python artifacts
+# -----------------------------
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+
+# -----------------------------
+# Environment & secrets
+# -----------------------------
 .env
+
+# -----------------------------
+# Data & vector stores
+# -----------------------------
 data/
 vector_store/
-logs/
-.cache/
-.ipynb_checkpoints/
-notebooks/.Trash-*/
-**/.Trash-*/
 cache/
+.cache/
+
+# -----------------------------
+# Logs & outputs
+# -----------------------------
+logs/
 submissions/
 
+# -----------------------------
+# Jupyter / notebooks
+# -----------------------------
+.ipynb_checkpoints/
+notebooks/.Trash-*/
+
+# -----------------------------
+# OS / editor trash
+# -----------------------------
+**/.Trash-*/

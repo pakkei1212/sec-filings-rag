@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from config import (
+from config_bak import (
     IMAGES_DIR,
     FINANCIAL_KEYWORDS,
     YEAR_PATTERN,

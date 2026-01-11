@@ -9,25 +9,23 @@ from src.utils.logger import setup_logger
 
 from tqdm.auto import tqdm
 
-from config import (
-    VECTOR_DB_PATH,
-    OLLAMA_HOST,
-    BATCH_SIZE,
-    BASE_ARCHIVE,
-    SEC_ITEM_MAP,
-    REQUESTS_PER_SECOND,
+from configs.paths import LOG_DIR
+from configs.sec import BASE_ARCHIVE
+from configs.vector_db import VECTOR_DB_PATH
+from configs.models import (
     EMBEDDING_MODEL_NAME,
     EMBEDDING_MODEL_ALIAS,
-    LOG_DIR
+    BATCH_SIZE,
+    OLLAMA_HOST,
 )
+from configs.parsing import SEC_ITEM_MAP
 
+from src.ingestion.sec_client import get_submissions, download_filing
+from src.storage.chroma_manager import ChromaManager
+from src.embeddings.embedding_manager import TransformerEmbeddingManager
 
-from src.sec_client import get_submissions, download_filing
-from src.chroma_manager import ChromaManager
-from src.embedding_manager_transformer import TransformerEmbeddingManager
-
-from src.parser.html_parser import parse_html
-from src.chunker import split_sections_with_items, chunk_text
+from src.ingestion.html_parser import parse_html
+from src.ingestion.chunker import split_sections_with_items, chunk_text
 
 
 # -------------------------------------------------

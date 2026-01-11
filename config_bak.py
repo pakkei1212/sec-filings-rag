@@ -7,10 +7,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 DATA_DIR = BASE_DIR / "data"
-OUTPUT_DIR = BASE_DIR / "output"
 CACHE_DIR = BASE_DIR / "cache"
 
-for d in [DATA_DIR, OUTPUT_DIR, CACHE_DIR]:
+for d in [DATA_DIR, CACHE_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # ----------------------------
@@ -33,7 +32,7 @@ MODEL_CACHE_DIR.mkdir(exist_ok=True)
 # ----------------------------
 # Vector database (Chroma)
 # ----------------------------
-CHROMA_PERSIST_DIR = Path(str(DATA_DIR / "chroma"))
+CHROMA_PERSIST_DIR = Path(str(BASE_DIR / "vector_store"))
 CHROMA_DIR = CHROMA_PERSIST_DIR
 CHROMA_DIR.mkdir(parents=True, exist_ok=True)
 

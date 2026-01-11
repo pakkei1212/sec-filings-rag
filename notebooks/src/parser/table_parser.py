@@ -2,7 +2,7 @@ import re
 from typing import List, Dict
 from bs4 import BeautifulSoup
 
-from config import (
+from config_bak import (
     FINANCIAL_KEYWORDS,
     YEAR_PATTERN,
     ITEM_PATTERN,

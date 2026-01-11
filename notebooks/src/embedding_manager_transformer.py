@@ -14,7 +14,7 @@ from sentence_transformers import SentenceTransformer
 import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
-from config import *
+from config_bak import *
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)

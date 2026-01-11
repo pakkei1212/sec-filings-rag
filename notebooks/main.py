@@ -6,7 +6,7 @@ from collections import Counter
 
 from tqdm.auto import tqdm
 
-from config import (
+from config_bak import (
     VECTOR_DB_PATH,
     OLLAMA_HOST,
     BATCH_SIZE,

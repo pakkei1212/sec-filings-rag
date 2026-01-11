@@ -27,10 +27,14 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
       - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
-      - ./app:/workspace/app
+      - ./src:/workspace/src
       - ./notebooks:/workspace/notebooks
+      - ./configs:/workspace/configs
+      - ./scripts:/workspace/scripts
       - ./data:/workspace/data
-      - ./submissions:/workspace/submissions
+      - ./vector_store:/workspace/vector_store
+
+      - ./cache:/workspace/cache
     working_dir: /workspace
     ports:
       - "8888:8888"

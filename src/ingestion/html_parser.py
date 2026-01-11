@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 
-from src.parser.table_parser import process_table
-from src.parser.image_parser import process_images
-from src.parser.text_parser import extract_text_from_dom
+from src.ingestion.table_parser import process_table
+from src.ingestion.image_parser import process_images
+from src.ingestion.text_parser import extract_text_from_dom
 
-from src.embedding_manager_transformer import TransformerEmbeddingManager
+from src.embeddings.embedding_manager import TransformerEmbeddingManager
 
-from config import VISION_MODEL, EMBEDDING_MODEL_NAME, OLLAMA_HOST
+from configs.models import VISION_MODEL, EMBEDDING_MODEL_NAME, OLLAMA_HOST
 
 def parse_html(html: str, base_url: str):
     soup = BeautifulSoup(html, "lxml")

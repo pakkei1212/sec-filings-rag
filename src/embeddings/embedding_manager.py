@@ -16,7 +16,7 @@ from sentence_transformers import SentenceTransformer
 import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
-from config import CACHE_DIR
+from configs.paths import CACHE_DIR
 
 class TransformerEmbeddingManager:
     """
@@ -162,7 +162,7 @@ class TransformerEmbeddingManager:
                 return ""
     
             try:
-                from config import SEC_IMAGE_PROMPT
+                from configs.prompts import SEC_IMAGE_PROMPT
 
                 # Read and encode image
                 with open(image_path, "rb") as image_file:

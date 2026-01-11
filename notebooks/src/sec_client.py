@@ -3,7 +3,7 @@ import requests
 from pathlib import Path
 from typing import Dict
 
-from config import (
+from config_bak import (
     BASE_DATA,
     BASE_ARCHIVE,
     SUBMISSIONS_DIR,

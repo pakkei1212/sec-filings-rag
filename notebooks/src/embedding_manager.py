@@ -18,7 +18,7 @@ from PIL import Image
 import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
-from config import *
+from config_bak import *
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)

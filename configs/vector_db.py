@@ -1,0 +1,4 @@
+from configs.paths import VECTOR_STORE_DIR
+
+VECTOR_DB_PATH = VECTOR_STORE_DIR
+CHROMA_COLLECTION_NAME = "sec_filings"
